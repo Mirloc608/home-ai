@@ -1,0 +1,30 @@
+system:
+  security:
+    type: runtime.security.policy.SecurityPolicyEngine
+
+  tool_proxy:
+    type: runtime.security.tool_proxy.ToolProxy
+    depends_on:
+      - security
+
+  governance:
+    type: core.policies.governance.validator.GovernanceValidator
+
+  learning_memory:
+    type: core.cognition.learning.memory.LearningMemory
+
+  scorer:
+    type: core.cognition.learning.scorer.PlanScorer
+    depends_on:
+      - learning_memory
+
+  learning_policy:
+    type: core.cognition.learning.policy.PlanningPolicy
+    depends_on:
+      - scorer
+
+  drift_detector:
+    type: runtime.drift.detector.DriftDetector
+
+  planner_adapter:
+    type: core.cognition.capability.planner_adapter.CapabilityAwarePlannerAdapter

@@ -1,0 +1,10 @@
+[project]
+name = "home-ai"
+version = "1.0.0"
+description = "Home AI v1 cognitive operating system"
+
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "requests"
+]

@@ -1,0 +1,2 @@
+class StartupFailure(Exception):
+    pass
